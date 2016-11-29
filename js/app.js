@@ -30,6 +30,12 @@ app.config(function($routeProvider) {
         })
 });
 
+ app.filter('round', function () {
+        return function (value) {
+            return Math.round(value);
+        };
+    })
+
 
 app.service("GameRetrievalService", function($http) {
 
@@ -37,20 +43,17 @@ app.service("GameRetrievalService", function($http) {
 
     gameRetrievalService.games = [];
 
-    gameRetrievalService.sumYellows = 0;
-
-
     $http.get("data/referee-career.json")
         .success(function(data) {
             gameRetrievalService.games = data.GAMES;
         
             gameRetrievalService.games.sumYellows = getSumYellows();
+            gameRetrievalService.games.sumReds = getSumCards();
             
             function getSumYellows() {
                 var sumYellows=0;
         for (var game in gameRetrievalService.games) {
 
-            
             var yellows = parseInt(gameRetrievalService.games[game].yellows);
 
             if (gameRetrievalService.games[game].yellows !== "" && yellows > 0) {
@@ -58,6 +61,19 @@ app.service("GameRetrievalService", function($http) {
             }
         }
         return sumYellows;
+    };
+    
+                function getSumCards() {
+                var sum=0;
+        for (var game in gameRetrievalService.games) {
+	        
+	        var x = parseInt(gameRetrievalService.games[game].reds);
+
+            if (gameRetrievalService.games[game].reds !== "" && x>0) {
+                sum += x;
+            }
+        }
+        return sum;
     };
 
         })
