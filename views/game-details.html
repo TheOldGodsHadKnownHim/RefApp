@@ -1,0 +1,114 @@
+<div class="jumbotron text-center">
+    <h1>Match Details</h1>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Match Report</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                </button>
+                <div>Date: {{game.Date}} @ {{game.Venue}} with the following weather conditions: {{game.Weather}}</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>Result: {{game.Home}} {{game.Home_Score}} - {{game.Away_Score}} {{game.Away}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-time"></span>
+                </button>
+                <div>Age Category: U{{game.Age_Group}} {{game.Division}} ({{game.Game_Duration/2}} minutes e/w)
+                </div>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-euro"></span>
+                </button>
+                <div>Match Fee: €{{game.Match_Fee}}
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>The match quality was a {{game.Game_Quality}}/10 and my performance merited a {{game.My_Performance}}/10
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-warning pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>Yellows: {{game.yellows}}
+                </div>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-danger pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>Reds: {{game.reds}}
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>Frees: There were {{game.Num_Frees}} free kicks, {{game.Num_Pens}} penalty kicks and {{game.Offsides}} offsides.
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-comment"></span>
+                </button>
+                <div>Additional Comments: {{game.Comments}}
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button class="btn btn-sm btn-success pull-left">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </button>
+                <div>Kilometeres covered during match: {{game.Distance_Covered}}
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

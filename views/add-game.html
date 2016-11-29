@@ -1,0 +1,32 @@
+<div class="col-xs-12">
+    <div class="jumbotron text-center">
+        <h6>Record Latest Fixture (This form is still to be developed. At the moment the application draws information from a flat json file. However, this will soon be changing to persist the data to a json friendly data source (most probably MongoDB))</h6>
+    </div>
+    <form name="gameForm">
+
+        <p><b>Dirty: </b>{{gameForm.$dirty}}</p>
+        <p><b>Pristine: </b>{{gameForm.$pristine}}</p>
+        <p><b>Valid: </b>{{gameForm.$valid}}</p>
+
+        <div class="form-group">
+            <input type="text" ng-pattern="/^[a-zA-Z]*$/" class="form-control" placeholder="Game Item" ng-model="games.game">
+        </div>
+        
+        <div class="alert alert-danger" role="alert" ng-show="groceryForm.$dirty && !groceryForm.$valid">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> You have entered an invalid grocery item! Please use alpha characters only. 
+        </div>
+
+        <div class="form-group">
+            <a href="#/" class="btn btn-success btn-lg btn-block" ng-click="save()" ng-disabled="gameForm.$invalid">
+                <span class="glyphicon glyphicon-pushpin"></span> Save Game
+            </a>
+        </div>
+
+        <div class="form-group">
+            <a href="#/" class="btn btn-default btn-lg btn-block">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+            </a>
+        </div>
+    </form>
+</div>
