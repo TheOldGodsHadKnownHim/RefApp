@@ -1,4 +1,4 @@
-# RefAppJsonFile
+# RefApp
 
 Referee Application to practice working with Angular JS and javascript
 
