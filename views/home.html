@@ -5,16 +5,31 @@
           
     <a href="#/addGame" style="margin-bottom: 10px;" class="btn btn-primary btn-lg btn-block">
         <span class="glyphicon glyphicon-plus"></span> Add Latest Game Details</a>
-        
-        <div class="btn-group " role="group" aria-label="...">
-  <button type="button" class="btn btn-warning btn-lg">Total yellow cards issued: {{games.sumYellows}}</button>
-    <button type="button" class="btn btn-danger btn-lg">Total red cards issued: {{games.sumReds}}</button>
-      <button type="button" class="btn btn-warning btn-lg">Average yellow cards per game: {{games.sumYellows/games.length | round}}</button>
-            <button type="button" class="btn btn-danger btn-lg">Average red cards per game: {{games.sumReds/games.length | round}}</button>
+
+<div class="card" style="float:left">
+  <img class="card-img" src="/RefApp/img/yellow-card.png" alt="Card image" width="250" height="300" >
+  <div class="card-img-overlay" >
+    <h4 class="card-title">Cautions</h4>
+    <p class="card-text">Total issued: {{games.sumYellows}}</p>
+    <p class="card-text">Average per game: {{games.sumYellows/games.length | round}}</p>
+    <p class="card-text">Most in one game: {{games.maxYellows}}</p>
+  </div>
+  
+
 </div>
  
+ <div class="card" style="float:left">
+     <img class="card-img" src="/RefApp/img/red_card.png" alt="Card image" width="250" height="300">
+  <div class="card-img-overlay">
+    <h4 class="card-title">Dismissals</h4>
+    <p class="card-text">Total issued: {{games.sumReds}}</p>
+    <p class="card-text">Average per game: {{games.sumReds/games.length | number}}</p>
+    <p class="card-text">Most in one game: {{games.maxReds}}</p>
+  </div>
 </div>
 
+
+</div>
 
 
 

@@ -49,6 +49,9 @@ app.service("GameRetrievalService", function($http) {
         
             gameRetrievalService.games.sumYellows = getSumYellows();
             gameRetrievalService.games.sumReds = getSumCards();
+            gameRetrievalService.games.maxReds = getMaxReds();
+            gameRetrievalService.games.maxYellows = getMaxYellows();
+
             
             function getSumYellows() {
                 var sumYellows=0;
@@ -74,6 +77,32 @@ app.service("GameRetrievalService", function($http) {
             }
         }
         return sum;
+    };
+    
+                    function getMaxReds() {
+                var max=0;
+        for (var game in gameRetrievalService.games) {
+	        
+	        var x = parseInt(gameRetrievalService.games[game].reds);
+
+            if (gameRetrievalService.games[game].reds !== "" && x>0 && x > max) {
+                max = x;
+            }
+        }
+        return max;
+    };
+    
+                        function getMaxYellows() {
+                var max=0;
+        for (var game in gameRetrievalService.games) {
+	        
+	        var x = parseInt(gameRetrievalService.games[game].yellows);
+
+            if (gameRetrievalService.games[game].yellows !== "" && x>0 && x > max) {
+                max = x;
+            }
+        }
+        return max;
     };
 
         })
