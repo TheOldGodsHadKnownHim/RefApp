@@ -13,3 +13,10 @@
     right: 0;
     top: 40%;
 }
+}
+
+.relative{position:relative; width:250px;}
+.absolute-text{position:absolute; top:0; font-size:12px; font-family:"verdana"; background:rgba(251,251,251,0.5);
+padding:10px 20px; width:100%; text-align:center; display: inline-block;}
+.absolute-text a{font-size:10px; color:#b92b27;}
+>>>>>>> styles
