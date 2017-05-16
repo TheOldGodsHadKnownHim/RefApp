@@ -1,8 +1,7 @@
 <div class="col-xs-12">
-	<a href="#/viewAllGames" style="margin-bottom: 10px;" class="btn btn-success btn-lg btn-block">
-        <span class="glyphicon glyphicon-time"></span>
-         View All {{games.length}} Games Officiated</a>
-          
+    <a href="#/viewAllGames" style="margin-bottom: 10px;" class="btn btn-success btn-lg btn-block">
+        <span class="glyphicon glyphicon-time"></span> View All {{games.length}} Games Officiated</a>
+
     <a href="#/addGame" style="margin-bottom: 10px;" class="btn btn-primary btn-lg btn-block">
         <span class="glyphicon glyphicon-plus"></span> Add Latest Game Details</a>
 
@@ -28,10 +27,63 @@
   </div>
 </div>
 
+    <div class="card" style="float:left">
+        <img class="card-img" src="/RefApp/img/yellow-card.png" alt="Card image" width="250" height="300">
+        <div class="card-img-overlay" style="text-align:center">
+            <h4 class="card-title">Cautions</h4>
+            <p class="card-text">Total issued: {{games.sumYellows}}</p>
+            <p class="card-text">Average per game: {{games.sumYellows/games.length | round}}</p>
+            <p class="card-text">Most in one game: {{games.maxYellows}}</p>
+        </div>
 
 </div>
 
 
+    </div>
+
+    <div class="card" style="float:left">
+        <img class="card-img" src="/RefApp/img/red_card.png" alt="Card image" width="250" height="300">
+        <div class="card-img-overlay" style="text-align:center">
+            <h4 class="card-title">Dismissals</h4>
+            <p class="card-text">Total issued: {{games.sumReds}}</p>
+            <p class="card-text">Average per game: {{games.sumReds/games.length | number}}</p>
+            <p class="card-text">Most in one game: {{games.maxReds}}</p>
+        </div>
+    </div>
+
+    <div class="card" style="float:left">
+        <img class="card-img" src="/RefApp/img/goal2.jpg" alt="Card image" width="250" height="300">
+        <div class="card-img-overlay" style="text-align:center">
+            <h4 class="card-title">Goals</h4>
+            <p class="card-text">Total goals scored: {{games.sumGoals}}</p>
+            <p class="card-text">Average per game: {{games.sumGoals/games.length | number}}</p>
+            <p class="card-text">Most in one game: {{games.maxGoalsInGame}}</p>
+        </div>
+    </div>
+
+    <div class="card" style="float:left">
+        <img src="/RefApp/img/slate.jpg" alt="Card image" width="250" height="300">
+        <h4 class="card-title">Additional Stats</h4>
+        <p class="card-text">Total earnings: {{games.sumEarnings}}</p>
+        <p class="card-text">Average match fee: {{games.sumEarnings/games.length | number}}</p>
+        <p class="card-text">Total frees awarded: {{games.sumFrees}}</p>
+        <p class="card-text">Average frees per game: {{games.sumFrees/games.length | number}}</p>
+        <p class="card-text">Total penalties awarded: {{games.sumPens}}</p>
+        <p class="card-text">Average penalties per game: {{games.sumPens/games.length | number}}</p>
+        <p class="card-text">Total kilometeres covered: {{games.sumDistance}}</p>
+        <p class="card-text">Average kilometres per game: {{games.sumDistance/games.length | number}}</p>
+        <p class="card-text">Total hours refereed: {{games.sumHours}}</p>
+        <p class="card-text">Total offsides: {{games.sumOffsides}}</p>
+        <p class="card-text">Average offsides per game: {{games.sumOffsides/games.length | number}}</p>
+        <p class="card-text">Average game enjoyment score: {{games.sumEnjoyment/games.length | number}}</p>
+        <p class="card-text">Average self assessment score: {{games.sumAssessment/games.length | number}}</p>
+        <p class="card-text">Team refereed most: {{games.mostPopularTeam}}</p>
+        <p class="card-text">Team with worst disciplinary record: {{games.worstDiscipline}}</p>
+
+
+    </div>
+
+</div>
 
 </br>
 </br>

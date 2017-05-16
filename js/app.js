@@ -30,11 +30,11 @@ app.config(function($routeProvider) {
         })
 });
 
- app.filter('round', function () {
-        return function (value) {
-            return Math.round(value);
-        };
-    })
+app.filter('round', function() {
+    return function(value) {
+        return Math.round(value);
+    };
+})
 
 
 app.service("GameRetrievalService", function($http) {
@@ -45,8 +45,7 @@ app.service("GameRetrievalService", function($http) {
 
     $http.get("data/referee-career.json")
         .success(function(data) {
-            gameRetrievalService.games = data.GAMES;
-        
+            gameRetrievalService.games = data.GAMES;        
             gameRetrievalService.games.sumYellows = getSumYellows();
             gameRetrievalService.games.sumReds = getSumCards();
             gameRetrievalService.games.maxReds = getMaxReds();
@@ -57,20 +56,13 @@ app.service("GameRetrievalService", function($http) {
                 var sumYellows=0;
         for (var game in gameRetrievalService.games) {
 
-            var yellows = parseInt(gameRetrievalService.games[game].yellows);
+            gameRetrievalService.games.sumYellows = getGameStatisticSum('yellows');
+            gameRetrievalService.games.sumReds = getGameStatisticSum('reds');
+            gameRetrievalService.games.maxReds = getMaxReds();
+            gameRetrievalService.games.maxYellows = getMaxYellows();
+            gameRetrievalService.games.sumGoals = getGameStatisticSum('goals');
+            gameRetrievalService.games.maxGoalsInGame = getMaxGoalsInGame();
 
-            if (gameRetrievalService.games[game].yellows !== "" && yellows > 0) {
-                sumYellows += yellows;
-            }
-        }
-        return sumYellows;
-    };
-    
-                function getSumCards() {
-                var sum=0;
-        for (var game in gameRetrievalService.games) {
-	        
-	        var x = parseInt(gameRetrievalService.games[game].reds);
 
             if (gameRetrievalService.games[game].reds !== "" && x>0) {
                 sum += x;
@@ -105,6 +97,80 @@ app.service("GameRetrievalService", function($http) {
         return max;
     };
 
+            function getGameStatisticSum(valueToBeSummed) {
+                var sum = 0;
+
+                if (valueToBeSummed === 'reds') {
+                    for (var game in gameRetrievalService.games) {
+
+
+                        var x = parseInt(gameRetrievalService.games[game].reds);
+
+                        if (gameRetrievalService.games[game].reds !== "" && x > 0) {
+                            sum += x;
+                        }
+                    }
+                } else if (valueToBeSummed === 'yellows') {
+                    for (var game in gameRetrievalService.games) {
+                        var x = parseInt(gameRetrievalService.games[game].yellows);
+
+                        if (gameRetrievalService.games[game].yellows !== "" && x > 0) {
+                            sum += x;
+                        }
+                    }
+                } else if (valueToBeSummed === 'goals') {
+                    for (var game in gameRetrievalService.games) {
+
+                        var x = parseInt(gameRetrievalService.games[game].Home_Score) +
+                            parseInt(gameRetrievalService.games[game].Away_Score);
+
+                        if (gameRetrievalService.games[game].Home_Score !== "" && gameRetrievalService.games[game].Away_Score !== "" && x > 0) {
+                            sum += x;
+                        }
+                    }
+                }
+                return sum;
+            };
+
+            function getMaxReds() {
+                var max = 0;
+                for (var game in gameRetrievalService.games) {
+
+                    var x = parseInt(gameRetrievalService.games[game].reds);
+
+                    if (gameRetrievalService.games[game].reds !== "" && x > 0 && x > max) {
+                        max = x;
+                    }
+                }
+                return max;
+            };
+
+            function getMaxYellows() {
+                var max = 0;
+                for (var game in gameRetrievalService.games) {
+
+                    var x = parseInt(gameRetrievalService.games[game].yellows);
+
+                    if (gameRetrievalService.games[game].yellows !== "" && x > 0 && x > max) {
+                        max = x;
+                    }
+                }
+                return max;
+            };
+
+            function getMaxGoalsInGame() {
+                var max = 0;
+                for (var game in gameRetrievalService.games) {
+
+                    var x = parseInt(gameRetrievalService.games[game].Home_Score) +
+                        parseInt(gameRetrievalService.games[game].Away_Score);
+
+                    if (gameRetrievalService.games[game].Home_Score !== "" && gameRetrievalService.games[game].Away_Score !== "" && x > 0 && x > max) {
+                        max = x;
+                    }
+                }
+                return max;
+            };
         })
         .error(function(data, status) {
             alert("Something went wrong.")
