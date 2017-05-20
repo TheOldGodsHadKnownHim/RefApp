@@ -4,8 +4,14 @@
     </div>    
       
     <div class="list-group"> 
-       <h4 class="list-group-item-heading">Search for specific team: <input type = "text" ng-model = "teamName"></h4>
-        <li ng-repeat="game in games | filter: teamName | orderBy: 'date'" class="list-group-item text-center clearfix">
+	    
+	    
+	    <div class="inner-addon left-addon">
+    <i class="glyphicon glyphicon-search"></i>
+    <input type="text" placeholder="Search for specific team" ng-model = "teamName" class="form-control" />
+	</div>
+	    
+	            <li ng-repeat="game in games | filter: teamName | orderBy: 'date'" class="list-group-item text-center clearfix">
            
 	             <kc-game-item></kc-game-item>
         </li>
