@@ -1,16 +1,13 @@
 <div class="col-xs-12">  
 	    <div class="jumbotron text-center" color="red">
-        <h3>Click on a result for further details</h3>
-        <br><br>
-         <h4>Filter by team name: <input type = "text" ng-model = "teamName"><br><br></h4>
-
-    </div>      
-    <ul class="list-group">
-
+        <h1>List Of All Games Refereed</h1>
+    </div>    
+      
+    <div class="list-group"> 
+       <h4 class="list-group-item-heading">Search for specific team: <input type = "text" ng-model = "teamName"></h4>
         <li ng-repeat="game in games | filter: teamName | orderBy: 'date'" class="list-group-item text-center clearfix">
            
 	             <kc-game-item></kc-game-item>
         </li>
-
-    </ul>
+    </div>
 </div>
