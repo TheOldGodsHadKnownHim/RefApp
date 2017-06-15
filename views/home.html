@@ -47,13 +47,13 @@
         </div>
         <div class="modal-body">
           <p>Total frees awarded: {{games.sumFrees}}</p>
-          <p>Average frees per game: {{games.sumFrees/games.length | number}}</p>
+          <p>Average frees per game: {{games.sumFrees/games.gamesWithFrees | number}}</p>
           <p>Total penalties awarded: {{games.sumPens}}</p>
-          <p>Average penalties per game: {{games.sumPens/games.length | number}}</p>
+          <p>Average penalties per game: {{games.sumPens/games.gamesWithPens | number}}</p>
           <p>Total offsides: {{games.sumOffsides}}</p>
-          <p>Average offsides per game: {{games.sumOffsides/games.length | number}}</p>
+          <p>Average offsides per game: {{games.sumOffsides/games.gamesWithOffsidesRecorded | number}}</p>
           <p>Total kilometeres covered: {{games.sumDistance}}</p>
-          <p>Average kilometres per game: {{games.sumDistance/games.length | number}}</p>
+          <p>Average kilometres per game: {{games.sumDistance/games.gamesWithKmsRecorded | number}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -74,7 +74,7 @@
         </div>
         <div class="modal-body">
           <p>Total Issued: {{games.sumYellows}}</p>
-          <p>Average per game: {{games.sumYellows/games.length | round}}</p>
+          <p>Average per game: {{games.sumYellows/games.length | number}}</p>
           <p>Most in one game: {{games.maxYellows}}</p>
         </div>
         <div class="modal-footer">
@@ -119,7 +119,7 @@
         </div>
         <div class="modal-body">
           <p>Total Issued: {{games.sumReds}}</p>
-          <p>Average per game: {{games.sumReds/games.length | round}}</p>
+          <p>Average per game: {{games.sumReds/games.length | number}}</p>
           <p>Most in one game: {{games.maxReds}}</p>
         </div>
         <div class="modal-footer">
@@ -140,8 +140,8 @@
           <h4 class="modal-title">Additional Stats</h4>
         </div>
         <div class="modal-body">
-          <p>Average game enjoyment score: {{games.sumEnjoyment/games.length | number}}</p>
-          <p>Average self assessment score: {{games.sumAssessment/games.length | number}}</p>
+          <p>Average game enjoyment score: {{games.sumEnjoyment/games.gamesWithEnjoyment | number}}</p>
+          <p>Average self assessment score: {{games.sumAssessment/games.gamesWithAssessments | number}}</p>
           <p>Total hours refereed: {{games.sumHours}}</p>
           <p>Team refereed most: {{games.mostPopularTeam}}</p>
           <p>Team with worst disciplinary record: {{games.worstDiscipline}}</p>

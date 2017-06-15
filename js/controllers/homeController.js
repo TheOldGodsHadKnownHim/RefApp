@@ -14,7 +14,11 @@ app.controller("HomeController", ["$scope", "GameRetrievalService", function($sc
         },
         function(games) {
             $scope.games = games;
-        })
+        });
+        
+        $scope.test = function(){
+	        GameRetrievalService.getGamesWithFrees();
+        }
 
     //$scope.sumYellows = GameRetrievalService.sumYellows();    
 
